@@ -15,16 +15,57 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+```
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    switch(n){
+        case 5:
+            printf("seventy one\n");
+            break;
+        case 6:
+            printf("seventy two\n");
+            break;
+        case 7:
+            printf("seventy three\n");
+            break;
+        case 8:
+            printf("seventy four\n");
+            break;
+        case 9:
+            printf("seventy five\n");
+            break;
+        case 10:
+            printf("seventy six\n");
+            break;
+        case 11:
+            printf("seventy seven\n");
+            break;
+        case 12:
+            printf("seventy eight\n");
+            break;
+        case 13:
+            printf("seventy nine\n");
+            break;
+        default:
+            printf("Greater than 13\n");
+    }
 
-//type your code here
-
+    // Step 4: Exit the program
+    return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/49fbd87c-1c0b-4e1e-8246-9e8016c80c8c)
+
+
 
 
 
@@ -47,15 +88,32 @@ Algorithm:
  
 Program:
 
-//type your code here
-
+```
+#include <stdio.h>
+int main() {
+    int freq[10] = {0};  
+    char ch;
+    printf("Enter digits (end with non-digit character): ");
+    while ((ch = getchar()) >= '0' && ch <= '9') {
+        int digit = ch - '0';
+        if (digit >= 0 && digit <= 3) {
+            freq[digit]++;
+        }
+    }
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", i <= 3 ? freq[i] : 0);
+    }
+    printf("\n");
+    return 0;
+}
+```
 
 
 
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/8c86b87c-4a4c-4897-a8e4-63e0549a114c)
 
 
 
@@ -83,18 +141,57 @@ Free the memory allocated for each string in s Free the memory allocated for s
 7.	End
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void swap(char *a, char *b) {
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int cmpfunc(const void *a, const void *b) {
+    return (*(char *)a - *(char *)b);
+}
+void reverse(char *str, int start, int end) {
+    while (start < end) {
+        swap(&str[start], &str[end]);
+        start++;
+        end--;
+    }
+}
+int next_permutation(char *str, int len) {
+    int i = len - 2;
+    while (i >= 0 && str[i] >= str[i + 1])
+        i--;
+    if (i < 0)
+        return 0;
+    int j = len - 1;
+    while (str[j] <= str[i])
+        j--;
+    swap(&str[i], &str[j]);
+    reverse(str, i + 1, len - 1);
+    return 1;
+}
+int main() {
+    char str[100];
+   printf("Enter a string: ");
+    scanf("%s", str);
+    int len = strlen(str);
+    qsort(str, len, sizeof(char), cmpfunc);
+    do {
+        printf("%s\n", str);
+    } while (next_permutation(str, len));
 
-//type your code here
-
-
+    return 0;
+}P
+```
 
 
 Output:
 
 
-//paste your output here
-
-
+![image](https://github.com/user-attachments/assets/cc4e47d4-3409-4886-9acf-e475ec2d7ac8)
 
 
 
@@ -117,15 +214,32 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+int main() {
+    int n, i, j, num = 1;
 
+    printf("Enter the value of N: ");
+    scanf("%d", &n);
 
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("%d ", num++);
+        }
+        printf("\n");
+    }
 
+    return 0;
+}
+
+```
 
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/606f34ee-812b-487d-8d02-554c426bd678)
+
+
 
 
 
@@ -156,15 +270,27 @@ o	Call the square() function and display the result.
 
 Program:
 
-//type your code here
-
-
-
+```
+#include <stdio.h>
+int square() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    return num * num;
+}
+int main() {
+    int result;
+    result = square(); 
+    printf("Square of the number is: %d\n", result);
+    return 0;
+}
+```
 
 Output:
 
 
-//paste your output here
+![image](https://github.com/user-attachments/assets/0003e7f4-e63d-4e04-9986-ba7fc40f03cc)
+
 
 
 
@@ -173,30 +299,3 @@ Output:
 
 Result:
 Thus, the program is verified successfully
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
